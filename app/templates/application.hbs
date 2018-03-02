@@ -1,5 +1,37 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<html>
 
-{{outlet}}
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='author' content='Kara Isakson'>
+    <meta name='description' content='Kara Isakson'>
+    <meta name='keywords' content='Kara, Isakson, Kara Isakson, software, software engineer, coding, alarm.com, video, sewing'>
+    <title>Kara Isakson</title>
+    <link rel='stylesheet' href=''> <!-- TODO do I actually need this link with Ember? -->
+  </head>
+
+  <body class={{globalCssClass}}>
+    <h1>Kara Isakson</h1>
+
+    <ul class='nav'>
+      <li>Home</li> <!-- TODO put these in a controller item -->
+      <li>Coding</li>
+      <li>Art</li>
+      <li>Sewing</li>
+      <li>Contact</li>
+    </ul>
+
+    {{outlet}}
+
+    <div class='footer'>
+    	<div class='css-switch'> <!-- TODO put these in a controller item -->
+    		<button class='css-button' {{action 'setCss' 'css-basic'}}>Basic</button>
+    		<button class='css-button' {{action 'setCss' 'css-stylish'}}>Stylish</button>
+    	</div>
+    	<div class='credits'>
+    		Developed with love by Kara Isakson, 2018. <br>
+    		Created with Ember.
+    	</div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,11 @@
+<div class='preview-item' {{action "clickItem" title}}>
+  <h4 class='preview-title'>{{title}}</h4>
+
+  <div class='preview-image'>
+    <img src='{{imageUrl}}'>
+  </div>
+
+  <div class='preview-text'>
+    {{yield}}
+  </div>
+</div>

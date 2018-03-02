@@ -1,0 +1,19 @@
+<div class='preview-list'>
+	{{#each entries as |entry|}}
+		{{#preview-item
+				title=entry.title
+				imageUrl=entry.url
+		}}
+			{{entry.body}}
+		{{/preview-item}}
+	{{/each}}
+</div>
+
+<!--
+
+Each entry should have:
+Title
+id? or unique identifier? or url of actual project? probably similar to name but with dashes
+Image source, probably split up by folder and image-name
+
+-->
