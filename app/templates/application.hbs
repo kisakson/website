@@ -1,40 +1,27 @@
-<html>
-<!-- TODO this is actually adding duplicate html/head/body tags.
-I need to set meta and css class attributes in another way -->
+<!-- <body class={{globalCssClass}}> -->
+<h1>Kara Isakson</h1>
 
-  <head>
-    <meta charset='UTF-8'>
-    <meta name='author' content='Kara Isakson'>
-    <meta name='description' content='Kara Isakson'>
-    <meta name='keywords' content='Kara, Isakson, Kara Isakson, software, software engineer, coding, alarm.com, video, sewing'>
-    <title>Kara Isakson</title>
-    <link rel='stylesheet' href=''> <!-- TODO do I actually need this link with Ember? -->
-  </head>
+<ul class="nav">
+  {{#each navItems as |item|}}
+    <li>{{#link-to item.link}}{{item.title}}{{/link-to}}</li>
+  {{/each}}
+</ul>
 
-  <body class={{globalCssClass}}>
-    <h1>Kara Isakson</h1>
+{{outlet}}
 
-    <ul class='nav'>
-      {{#each navItems as |item|}}
-        <li>{{#link-to item.link}}{{item.title}}{{/link-to}}</li>
-      {{/each}}
-    </ul>
-
-    {{outlet}}
-
-    <div class='footer'>
-    	<div class='css-switch'>
-        {{#each styleButtons as |button|}}
-          <button class='css-button{{if (eq button.cssClass globalCssClass) " selected"}}' {{action 'setCss' button.cssClass}}>
-            {{button.name}}
-          </button>
-        {{/each}}
-    	</div>
-    	<div class='credits'>
-    		Developed, with love, by Kara Isakson, 2018. <br>
-    		Created with Ember.
-    	</div>
-    </div>
-  </body>
-
-</html>
+<div class="footer">
+  <div class="css-switch">
+    {{#each styleButtons as |cssButton|}}
+      <button
+        class="css-button{{if (eq cssButton.cssClass globalCssClass) ' selected'}}"
+        onclick={{action "setCss" cssButton.cssClass}}
+      >
+        {{cssButton.name}}
+      </button>
+    {{/each}}
+  </div>
+  <div class="credits">
+    Developed, with love, by Kara Isakson, 2018. <br>
+    Created with Ember.
+  </div>
+</div>

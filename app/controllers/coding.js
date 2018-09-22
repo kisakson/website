@@ -1,15 +1,16 @@
-import Ember from 'ember'; // TODO upgrade to Ember 3.0.0
+import Controller from '@ember/controller';
 
 /**
  * Controller for my coding page.
  * 
  * @memberOf app.Coding TODO figure JSdoc stuff out? necessary or unnecessary for a one-person project?
  */
-export default Ember.Controller.extend({
+export default Controller.extend({
 
   title: 'Coding',
 
   init() {
+    this._super(...arguments);
     // Do something? Initiate any values?
   }
 });
