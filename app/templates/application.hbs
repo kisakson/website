@@ -1,4 +1,6 @@
 <html>
+<!-- TODO this is actually adding duplicate html/head/body tags.
+I need to set meta and css class attributes in another way -->
 
   <head>
     <meta charset='UTF-8'>
@@ -13,22 +15,23 @@
     <h1>Kara Isakson</h1>
 
     <ul class='nav'>
-      <li>Home</li> <!-- TODO put these in a controller item -->
-      <li>Coding</li>
-      <li>Art</li>
-      <li>Sewing</li>
-      <li>Contact</li>
+      {{#each navItems as |item|}}
+        <li>{{#link-to item.link}}{{item.title}}{{/link-to}}</li>
+      {{/each}}
     </ul>
 
     {{outlet}}
 
     <div class='footer'>
-    	<div class='css-switch'> <!-- TODO put these in a controller item -->
-    		<button class='css-button' {{action 'setCss' 'css-basic'}}>Basic</button>
-    		<button class='css-button' {{action 'setCss' 'css-stylish'}}>Stylish</button>
+    	<div class='css-switch'>
+        {{#each styleButtons as |button|}}
+          <button class='css-button{{if (eq button.cssClass globalCssClass) " selected"}}' {{action 'setCss' button.cssClass}}>
+            {{button.name}}
+          </button>
+        {{/each}}
     	</div>
     	<div class='credits'>
-    		Developed with love by Kara Isakson, 2018. <br>
+    		Developed, with love, by Kara Isakson, 2018. <br>
     		Created with Ember.
     	</div>
     </div>
